@@ -1,0 +1,4 @@
+user:User0
+host:mathon.aws.af.cm
+post:/receiver/post.php
+get:/receiver/get.php
