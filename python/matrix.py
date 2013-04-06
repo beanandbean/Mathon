@@ -36,7 +36,8 @@ class Matrix(object):
             self.__colClip(begin, end)
 
     def flip(self):
-        self.matrix = [[row[colId] for row in self.matrix] for colId in xrange(len(self.matrix[0]))]
+        self.matrix = [[row[colId] for row in self.matrix]
+                                   for colId in xrange(len(self.matrix[0]))]
 
     def show(self):
         for row in self.matrix:
