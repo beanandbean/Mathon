@@ -16,6 +16,9 @@ class MatrixCmd(cmd.Cmd):
     def do_config(self, rest):
         self.matrix.setConfig()
 
+    def do_reset(self, rest):
+        self.matrix.reset()
+
     def do_fill(self, rest):
         self.matrix.fill()
 

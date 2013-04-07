@@ -1,4 +1,4 @@
-user:User0
-host:mathon.aws.af.cm
 post:/receiver/post.php
+host:mathon.aws.af.cm
+user:User0
 get:/receiver/get.php

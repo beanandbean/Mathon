@@ -33,3 +33,11 @@ class Config(object):
         self.config["user"] = raw_input("Username? ")
         self.__dict__.update(self.config)
         self.write()
+
+    def reset(self):
+        self.config["host"] = "mathon.aws.af.cm"
+        self.config["get"] = "/receiver/get.php"
+        self.config["post"] = "/receiver/post.php"
+        self.config["user"] = "User0"
+        self.__dict__.update(self.config)
+        self.write()

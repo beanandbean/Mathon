@@ -14,6 +14,9 @@ class Matrix(object):
     def setConfig(self):
         self.config.inputConfig()
 
+    def reset(self):
+        self.config.reset()
+
     def fill(self):
         row = len(self.matrix)
         col = len(self.matrix[0])
