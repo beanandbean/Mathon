@@ -31,12 +31,12 @@ class Matrix(object):
         if rowMatch:
             begin = int(rowMatch.group(1))
             end = int(rowMatch.group(2))
-            self.__rowClip(begin, end)
+            self._rowClip(begin, end)
         colMatch = re.search(r"col\s+(\d+)\s+(\d+)", string)
         if colMatch:
             begin = int(colMatch.group(1))
             end = int(colMatch.group(2))
-            self.__colClip(begin, end)
+            self._colClip(begin, end)
 
     def flip(self):
         self.matrix = [[row[colId] for row in self.matrix]
@@ -58,7 +58,7 @@ class Matrix(object):
             print >>sys.stderr, "No Saved Data!"
 
     def submit(self, string):
-        params, headers = self.__preprocess()
+        params, headers = self._preprocess()
         string = string.strip()
         if string in ["get", "post"]:
             exec "lib.%sSubmit(params, headers, self.config)" % string
@@ -66,13 +66,13 @@ class Matrix(object):
             print >>sys.stderr, "Unknown Submit Method!"
 
     # Private Methods
-    def __rowClip(self, begin, end):
+    def _rowClip(self, begin, end):
         self.matrix = self.matrix[begin:end]
 
-    def __colClip(self, begin, end):
+    def _colClip(self, begin, end):
         self.matrix = [row[begin:end] for row in self.matrix]
 
-    def __preprocess(self):
+    def _preprocess(self):
         data = json.dumps(self.matrix)
         paramDict = {"username": self.config.user, "matrix": data}
         params = urllib.urlencode(paramDict)
