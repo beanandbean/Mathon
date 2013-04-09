@@ -5,8 +5,8 @@ class Matrix(object):
     # Override super methods
     def __init__(self, string):
         args = string.split()
-        pack = [int(arg) for arg in args]
-        row, col = pack
+        row = int(args[0])
+        col = int(args[1])
         self.matrix = [[0 for colId in xrange(col)] for rowId in xrange(row)]
         self.config = config.Config()
 
