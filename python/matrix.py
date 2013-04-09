@@ -60,8 +60,9 @@ class Matrix(object):
     def submit(self, string):
         params, headers = self._preprocess()
         string = string.strip()
-        if string in ["get", "post"]:
-            exec "lib.%sSubmit(params, headers, self.config)" % string
+        funcs = {"get": lib.getSubmit, "post": lib.postSubmit}
+        if string in funcs:
+            funcs[string](params, headers, self.config)
         else:
             print >>sys.stderr, "Unknown Submit Method!"
 
